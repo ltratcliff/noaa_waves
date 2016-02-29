@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+html {
+        height: 100%;
+	color:hsl(50, 100%, 50%);
+        background: linear-gradient(to bottom, black, white);
+        background-repeat: no-repeat;
+}
+
+</style>
+<script src="js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.ajax({
+	    url: '/cgi-bin/json_waves.py',
+	    dataType: 'json',
+	    contentType: "application/json", 
+	    type: 'GET',
+        complete: processData
+	}); //end ajax
+        function processData(data) {
+            val = data.responseJSON
+            htmllist = new Array()
+            val.results.forEach(function(entry) {
+            	htmllist.push("<p>" + entry[0] + entry[1] + entry[2] + entry[3] + "</p>" + "<br>")
+            	
+            }) //end foreach
+            $('body').html(htmllist.join())
+
+        } //end processData
+}); // end ready
+</script>
+</head>
+<body id=content>
+</body>
+</html>

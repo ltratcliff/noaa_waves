@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+html {
+        height: 100%;
+	color:hsl(50, 100%, 50%);
+        background: linear-gradient(to bottom, black, white);
+        background-repeat: no-repeat;
+}
+
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.getJSON(
+	    '/cgi-bin/json_waves.py',
+            function (data) {
+                console.log(data);
+            }
+	); //end ajax
+}); // end ready
+</script>
+</head>
+<body>
+</body>
+</html>
